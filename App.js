@@ -1,9 +1,18 @@
+import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import ButtonGradient from './components/buttons/ButtonGradient';
 
-export default function App() {
+const App = () => {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  const handleGradientButtonPress = () => {
+    console.log('handleGradientButtonPressed');
+    console.log(email, password);
+  };
+
   return (
     <SafeAreaProvider>
       <StatusBar style='auto' />
@@ -12,14 +21,30 @@ export default function App() {
           <Text style={styles.title}>Hello</Text>
           <Text style={styles.subtitle}>Sign in to your account</Text>
 
-          <TextInput style={styles.textInput} placeholder='Email' />
-          <TextInput style={styles.textInput} placeholder='Password' />
+          <TextInput
+            style={styles.textInput}
+            placeholder='Email'
+            onChange={setEmail}
+            value={email}
+            autoCapitalize='none'
+            autoCorrect={false}
+            autoComplete='off'
+          />
+          <TextInput
+            style={styles.textInput}
+            placeholder='Password'
+            onChange={setPassword}
+            value={password}
+            secureTextEntry
+          />
         </View>
-        <ButtonGradient />
+        <ButtonGradient onPress={handleGradientButtonPress} />
       </SafeAreaView>
     </SafeAreaProvider>
   );
-}
+};
+
+export default App;
 
 const styles = StyleSheet.create({
   mainContainer: {

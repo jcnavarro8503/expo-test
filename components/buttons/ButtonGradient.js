@@ -5,10 +5,9 @@ const FROM_COLOR = '#4c669f';
 const MIDDLE_COLOR = '#3b5998';
 const TO_COLOR = '#192f6a';
 
-export default function ButtonGradient() {
-  console.log('button here');
+const ButtonGradient = ({ onPress }) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Svg height='100%' width='100%' style={StyleSheet.absoluteFillObject}>
         <Defs>
           <LinearGradient id='grad' x1='0%' y1='0%' x2='0%' y2='100%'>
@@ -23,7 +22,9 @@ export default function ButtonGradient() {
       <Text style={styles.text}>Login</Text>
     </TouchableOpacity>
   );
-}
+};
+
+export default ButtonGradient;
 
 const styles = StyleSheet.create({
   container: {
