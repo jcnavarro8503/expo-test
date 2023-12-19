@@ -1,54 +1,55 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, TextInput, View } from "react-native";
-import ButtonGradient from "./components/buttons/ButtonGradient";
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import ButtonGradient from './components/buttons/ButtonGradient';
 
 export default function App() {
   return (
-    <View style={styles.mainContainer}>
-      <View style={styles.container}>
-        <Text style={styles.titulo}>Hello</Text>
-        <Text style={styles.subtitulo}>Sign in to your account</Text>
+    <SafeAreaProvider>
+      <StatusBar style='auto' />
+      <SafeAreaView style={styles.mainContainer}>
+        <View style={styles.container}>
+          <Text style={styles.title}>Hello</Text>
+          <Text style={styles.subtitle}>Sign in to your account</Text>
 
-        <TextInput style={styles.textInput} placeholder="Email" />
-        <TextInput style={styles.textInput} placeholder="Password" />
-
+          <TextInput style={styles.textInput} placeholder='Email' />
+          <TextInput style={styles.textInput} placeholder='Password' />
+        </View>
         <ButtonGradient />
-
-        <StatusBar style="auto" />
-      </View>
-    </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: "#f1f1f1",
+    backgroundColor: '#f1f1f1',
   },
 
   container: {
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
-  titulo: {
+  title: {
     fontSize: 80,
-    color: "#34434D",
-    fontWeight: "bold",
+    color: '#34434D',
+    fontWeight: 'bold',
   },
 
-  subtitulo: {
+  subtitle: {
     fontSize: 16,
-    color: "gray",
+    color: 'gray',
   },
 
   textInput: {
     padding: 10,
     paddingStart: 30,
-    width: "80%",
+    width: '80%',
     height: 40,
     marginTop: 20,
     borderRadius: 30,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
   },
 });
